@@ -21,7 +21,7 @@ class ContactController extends Controller
         $phone = $_POST['phone'];
         $message = $_POST['message'];
 
-        echo $name, $email, $phone, $message;
+
     }
 
     public function sendEmail(Request $request)
@@ -36,13 +36,13 @@ class ContactController extends Controller
 
 
        Mail::send(new Contact($data));
-        return redirect()->route('contato');
+        return redirect()->route('enviado-sucesso');
         //return new Contact($data);
         //var_dump($request->all());
     }
 
     public function sucessEmail()
     {
-        //return view('frontend.contact.contact-sucess');
+        return view('email.contato-sucesso');
     }
 }

@@ -21,21 +21,30 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/** Home */
 Route::get('/', [HomeController::class, 'index'])->name('index');
+
 Route::get('/categorias', [CategoryController::class, 'index']);
+
+/** Produtos */
 Route::get('/produto', [ProductController::class, 'product']);
 Route::get('/produtos', [ProductController::class, 'products']);
 Route::get('/produtos-listas', [ProductController::class, 'productList']);
+
+/** Blog */
 Route::get('/blog', [BlogController::class, 'index']);
 Route::get('/blog-post', [BlogController::class, 'post']);
+
+/** Contato */
 Route::get('/contato', [ContactController::class, 'index'])->name('contato');
 Route::post('/contato/enviar-email', [ContactController::class, 'sendEmail']);
-Route::get('/contato/enviar-sucesso', [ContactController::class, 'sucessEmail'])->name('sucessEmail');
+
 
 Route::get('/carrinho', [CartController::class, 'index']);
 Route::get('/checkout', [CheckoutController::class, 'index']);
 Route::get('/login', [UserController::class, 'login']);
+Route::get('/enviado-sucesso', [ContactController::class, 'sucessEmail'])->name('enviado-sucesso');
+
 
 /**Teste rota e-email **/
 Route::get('/email', function (){
