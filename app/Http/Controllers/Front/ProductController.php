@@ -9,17 +9,42 @@ class ProductController extends Controller
 {
     public function products()
     {
-        return view('frontend.product.products');
+        $head =$this->seo->render(env('APP_NAME') . ' - Loja de Jeans',
+            'O melhor jean masculino',
+            url('www.jacobjeans.com.br'),
+            asset('img/banner/banner-1.jpg'),
+            'sim');
+
+        return view('frontend.product.products', [
+            'head' =>  $head
+        ]);
     }
 
     public function productList()
     {
-        return view('frontend.product.products-list');
+        $head =$this->seo->render(env('APP_NAME') . ' - Loja de Jeans',
+            'O melhor jean masculino',
+            url('www.jacobjeans.com.br'),
+            asset('img/banner/banner-1.jpg'),
+            'sim');
+
+        return view('frontend.product.products-list',[
+            'head' =>  $head
+        ]);
+
     }
 
     public function product()
     {
-        return view('frontend.product.product');
+        $head =$this->seo->render(env('APP_NAME') . ' - Loja de Jeans',
+            'O melhor jean masculino',
+            url('www.jacobjeans.com.br'),
+            asset('img/banner/banner-1.jpg'),
+            'sim');
+
+        return view('frontend.product.product', [
+            'head' =>  $head
+        ]);
     }
 
     public function combos()

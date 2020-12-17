@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Front\BlogController;
 use App\Http\Controllers\Front\CartController;
 use App\Http\Controllers\Front\CategoryController;
@@ -42,7 +43,9 @@ Route::post('/contato/enviar-email', [ContactController::class, 'sendEmail']);
 
 Route::get('/carrinho', [CartController::class, 'index']);
 Route::get('/checkout', [CheckoutController::class, 'index']);
-Route::get('/login', [UserController::class, 'login']);
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'logindo'])->name('login.do');
+
 Route::get('/enviado-sucesso', [ContactController::class, 'sucessEmail'])->name('enviado-sucesso');
 
 

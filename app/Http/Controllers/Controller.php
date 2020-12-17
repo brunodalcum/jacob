@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Support\Message;
+use App\Support\Seo;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -13,10 +14,13 @@ class Controller extends BaseController
 
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    private $message;
+
+    protected $message;
+    protected $seo;
 
     public function __construct()
     {
         $this->message = new Message();
+        $this->seo = new Seo();
     }
 }

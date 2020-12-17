@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\View\Components\Alert;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 

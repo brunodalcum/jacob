@@ -1,6 +1,4 @@
-
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zxx">
 
 <head>
@@ -10,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo env('NAME_STORE') ?></title>
+
+    {!! $head  !!}
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -26,6 +26,7 @@
 
     <link rel="shortcut icon" href="assets/frontend/img/logoicone1.ico" type="image/x-icon">
     <link rel="icon" href="assets/frontend/img/logoicone2.ico" type="image/x-icon">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>
