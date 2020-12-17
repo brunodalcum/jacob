@@ -13,12 +13,15 @@ class AuthController extends Controller
 {
 
 
-
+    public function home()
+    {
+        return view('backend.dashboard');
+    }
 
     public function login(Request $request)
     {
 
-        return view('frontend.login.login');
+        return view('backend.login.login');
     }
 
     public function logindo(Request $request)
@@ -41,7 +44,7 @@ class AuthController extends Controller
             $json['message'] = $this->message->error('Ooops, usuário e senha não conferem')->render();
             return response()->json($json);
         }
-       $json['redirect'] = route('index');
+       $json['redirect'] = route('login');
         return response()->json($json);
 
     }

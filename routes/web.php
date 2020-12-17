@@ -43,6 +43,9 @@ Route::post('/contato/enviar-email', [ContactController::class, 'sendEmail']);
 
 Route::get('/carrinho', [CartController::class, 'index']);
 Route::get('/checkout', [CheckoutController::class, 'index']);
+
+/**  Dashboard */
+Route::get('/dashboard', [AuthController::class, 'login'])->name('login');
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'logindo'])->name('login.do');
 

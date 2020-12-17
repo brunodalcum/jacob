@@ -10,7 +10,6 @@
     <link rel="icon" type="image/png" href="assets/backend/images/favicon.png"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-
     <title>UpAdmin - Site Control</title>
 </head>
 <body>
@@ -25,22 +24,22 @@
                 <h1>Login</h1>
             </header>
 
-            <form name="login" action="<?php echo route('login.do');?>" method="post" autocomplete="off">
+            <form name="login" action="" method="post" autocomplete="off">
                 <label>
                     <span class="field icon-envelope">E-mail:</span>
-                    <input type="email" name="email" placeholder="Informe seu e-mail" value="brunodalcum@gmail.com" required/>
+                    <input type="email" name="email" placeholder="Informe seu e-mail" required/>
                 </label>
 
                 <label>
                     <span class="field icon-unlock-alt">Senha:</span>
-                    <input type="password" name="password" placeholder="Informe sua senha" />
+                    <input type="password" name="password_check" placeholder="Informe sua senha" required/>
                 </label>
 
                 <button class="gradient gradient-orange radius icon-sign-in">Entrar</button>
             </form>
 
             <footer>
-                <p>Desenvolvido por <a href="https://www.acessovip.com.br">www.<b>acessovip</b>.com.br</a></p>
+                <p>Desenvolvido por <a href="https://www.upinside.com.br">www.<b>upinside</b>.com.br</a></p>
                 <p>&copy; <?= date("Y"); ?> - Todos os Direitos Reservados</p>
                 <p class="dash_login_left_box_support">
                     <a target="_blank"
