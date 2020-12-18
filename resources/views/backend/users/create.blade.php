@@ -13,7 +13,7 @@
                     <li class="separator icon-angle-right icon-notext"></li>
                     <li><a href="">Clientes</a></li>
                     <li class="separator icon-angle-right icon-notext"></li>
-                    <li><a href="" class="text-orange">Novo Cliente</a></li>
+                    <li><a href="" class="text-orange">Novo Usuário</a></li>
                 </ul>
             </nav>
         </div>
@@ -23,7 +23,7 @@
         <div class="nav">
             @if($errors->all())
                 @foreach($errors->all() as $error)
-                    <p class="icon-asterisk">{{ $error }}</p>
+                    <x-alert color="orange" message="{{ $error }}"/>
             @endforeach
             @endif
             <ul class="nav_tabs">
@@ -40,31 +40,40 @@
                         <div class="label_gc">
                             <span class="legend">Perfil:</span>
                             <label class="label">
-                                <input type="checkbox" name="lessor"><span>Funcionário</span>
+                                <input type="checkbox" name="lessor"
+                                {{ (old('lessor') == 'on' || old('lessor') == true ? 'checked' : '') }}>
+                                <span>Usuário</span>
                             </label>
 
                             <label class="label">
-                                <input type="checkbox" name="lessee"><span>Cliente</span>
+                                <input type="checkbox" name="lessee{{ (old('lessee') == 'on' || old('lessee') == true ? 'checked' : '') }}">
+                                <span>Cliente</span>
                             </label>
                         </div>
 
                         <label class="label">
                             <span class="legend">*Nome:</span>
-                            <input type="text" name="name" placeholder="Nome Completo" value=""/>
+                            <input type="text" name="name" placeholder="Nome Completo" value="{{ old('name') }}"/>
                         </label>
 
                         <label class="label">
                                 <span class="legend">*CPF:</span>
                                 <input type="tel" class="mask-doc" name="cpf" placeholder="CPF do Cliente"
-                                       value=""/>
+                                       value="{{ old('cpf') }}"/>
                             </label>
                         </div>
                     <label class="label">
                     <label class="label">
                         <span class="legend">*E-MAIL:</span>
                         <input type="email" class="mask-doc" name="email" placeholder="EMAIL do cliente"
-                               value=""/>
+                               value="{{ old('email') }}"/>
                     </label>
+
+                            <label class="label">
+                                <span class="legend">*Data de Nascimento:</span>
+                                <input type="tel" name="date_of_birth" class="mask-date"
+                                       placeholder="Data de Nascimento" value="{{ old('date_of_birth') }}"/>
+                            </label>
 
                     <label class="label">
                         <span class="legend">*SENHA:</span>

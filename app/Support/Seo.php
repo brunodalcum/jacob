@@ -18,7 +18,7 @@ class Seo
         $this->optimizer = new Optimizer();
         $this->optimizer->openGraph(
             getenv('APP_NAME'),
-            'pt_BR',
+            'pt-BR',
             'article'
         )->twitterCard(
             getenv('CLIENT_SOCIAL_TWITTER_CREATOR'),

@@ -26,10 +26,11 @@ class User extends FormRequest
     {
         return [
             'name' =>   'required|min:3|max:191',
-            'cpf' => (!empty($this->request->all()['id']) ? 'required|min:11|max:14|unique:users,document,' . $this->request->all()['id'] : 'required|min:11|max:14|unique:users,document'),
+            'cpf' => (!empty($this->request->all()['id']) ? 'required|min:11|max:14|unique:users,cpf,' . $this->request->all()['id'] : 'required|min:11|max:14|unique:users,cpf'),
             // Access
             'email' => (!empty($this->request->all()['id']) ? 'required|email|unique:users,email,' . $this->request->all()['id'] : 'required|email|unique:users,email'),
             'password' => (empty($this->request->all()['id']) ? 'required' : ''),
+            'date_of_birth' => 'required|date_format:d/m/Y',
         ];
     }
 }

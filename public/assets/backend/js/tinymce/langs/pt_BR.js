@@ -1,4 +1,4 @@
-tinymce.addI18n('pt_BR',{
+tinymce.addI18n('pt-BR',{
 "Cut": "Recortar",
 "Heading 5": "Cabe\u00e7alho 5",
 "Header 2": "Cabe\u00e7alho 2",

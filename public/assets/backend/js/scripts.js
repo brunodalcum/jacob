@@ -191,7 +191,7 @@ $(function () {
 
 tinyMCE.init({
     selector: "textarea.mce",
-    language: 'pt_BR',
+    language: 'pt-BR',
     menubar: false,
     theme: "modern",
     height: 132,
