@@ -24,15 +24,15 @@
                 <h1>Login</h1>
             </header>
 
-            <form name="login" action="" method="post" autocomplete="off">
+            <form name="login" action="<?php echo route('login.do'); ?>" method="post" autocomplete="off">
                 <label>
                     <span class="field icon-envelope">E-mail:</span>
-                    <input type="email" name="email" placeholder="Informe seu e-mail" required/>
+                    <input type="email" name="email" placeholder="Informe seu e-mail" value="brunodalcum@gmail.com" required/>
                 </label>
 
                 <label>
                     <span class="field icon-unlock-alt">Senha:</span>
-                    <input type="password" name="password_check" placeholder="Informe sua senha" required/>
+                    <input type="password" name="password" placeholder="Informe sua senha" required/>
                 </label>
 
                 <button class="gradient gradient-orange radius icon-sign-in">Entrar</button>

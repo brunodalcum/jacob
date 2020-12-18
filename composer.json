@@ -42,10 +42,14 @@
             "Database\\Seeders\\": "database/seeders/"
         }
     },
+
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        }
+        },
+        "files": [
+            "app/Helpers/isActive.php"
+        ]
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

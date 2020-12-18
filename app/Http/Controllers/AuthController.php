@@ -20,6 +20,14 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        if(Auth::check() === true){
+            return redirect()->route('home');
+        }
+
+
+        //$user =  User::where('id', 2)->first();
+        //$user->password = bcrypt('teste');
+        //$user->save();
 
         return view('backend.login.login');
     }
@@ -43,10 +51,28 @@ class AuthController extends Controller
         if(!Auth::attempt($credentials)) {
             $json['message'] = $this->message->error('Ooops, usuário e senha não conferem')->render();
             return response()->json($json);
+
         }
-       $json['redirect'] = route('login');
+        $this->authenticated($request->getClientIp());
+
+       $json['redirect'] = route('home');
         return response()->json($json);
 
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
+    }
+
+    private function authenticated(string $ip)
+    {
+        $user = User::where('id', Auth::user()->id);
+        $user->update([
+            'last_login_at' => date('Y-m-d H:i:s'),
+            'last_login_ip' => $ip,
+        ]);
     }
 
 }

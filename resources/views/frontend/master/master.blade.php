@@ -51,7 +51,7 @@
         <div class="header__cart__price">item: <span>R$160,00</span></div>
 
         <div class="header__top__right__auth ml-4">
-            <a href="sistema"><i class="fa fa-user"></i> Login</a>
+            <a href="/login"><i class="fa fa-user"></i> Login</a>
         </div>
     </div>
     <div class="humberger__menu__widget">
@@ -113,7 +113,7 @@
                         </div>
 
                         <div class="header__top__right__auth">
-                            <a href="sistema"><i class="fa fa-user"></i> Login</a>
+                            <a href="/login"><i class="fa fa-user"></i> Login</a>
                         </div>
                     </div>
                 </div>

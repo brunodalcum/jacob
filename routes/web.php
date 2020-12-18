@@ -44,16 +44,19 @@ Route::post('/contato/enviar-email', [ContactController::class, 'sendEmail']);
 Route::get('/carrinho', [CartController::class, 'index']);
 Route::get('/checkout', [CheckoutController::class, 'index']);
 
-/**  Dashboard */
-Route::get('/dashboard', [AuthController::class, 'login'])->name('login');
+
+
+
+/** Rota login */
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'logindo'])->name('login.do');
 
 Route::get('/enviado-sucesso', [ContactController::class, 'sucessEmail'])->name('enviado-sucesso');
 
+/** Rotas protegidas */
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [AuthController::class, 'home'])->name('home');
 
-/**Teste rota e-email **/
-Route::get('/email', function (){
-        Mail::to('brunobbmp3@gmail.com')->send(new \App\Mail\StoreMail());
+    /** Logout  */
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
-

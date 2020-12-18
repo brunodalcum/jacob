@@ -19,7 +19,7 @@ class HomeController extends Controller
         asset('img/banner/banner-1.jpg'),
         'sim');
 
-        return view('index', [
+        return view('frontend.index', [
             'head' =>  $head
         ]);
     }
