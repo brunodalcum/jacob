@@ -47,6 +47,9 @@ Route::get('/checkout', [CheckoutController::class, 'index']);
 
 
 
+
+/** ROTAS ADMINISTRATIVAS */
+
 /** Rota login */
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'logindo'])->name('login.do');
@@ -56,6 +59,9 @@ Route::get('/enviado-sucesso', [ContactController::class, 'sucessEmail'])->name(
 /** Rotas protegidas */
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [AuthController::class, 'home'])->name('home');
+
+    Route::get('/users/team', [\App\Http\Controllers\Admin\UserController::class, 'team'])->name('team');
+    Route::resource('/users', \App\Http\Controllers\Admin\UserController::class);
 
     /** Logout  */
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

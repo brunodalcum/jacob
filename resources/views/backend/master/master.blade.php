@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
 
-    <link rel="stylesheet" href="assets/backend/css/reset.css"/>
-    <link rel="stylesheet" href="assets/backend/js/datatables/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="assets/backend/js/datatables/css/responsive.dataTables.min.css">
-    <link rel="stylesheet" href="assets/backend/js/select2/css/select2.min.css">
-    <link rel="stylesheet" href="assets/backend/css/boot.css"/>
-    <link rel="stylesheet" href="assets/backend/css/style.css"/>
-    <link rel="icon" type="image/png" href="assets/backend/images/favicon.png"/>
+    <link rel="stylesheet" href="/assets/backend/css/reset.css"/>
+    <link rel="stylesheet" href="/assets/backend/js/datatables/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="/assets/backend/js/datatables/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="/assets/backend/js/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/assets/backend/css/boot.css"/>
+    <link rel="stylesheet" href="/assets/backend/css/style.css"/>
+    <link rel="icon" type="image/png" href="/assets/backend/images/favicon.png"/>
 
     <title>UpAdmin - Site Control</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -29,7 +29,7 @@
 <div class="dash">
     <aside class="dash_sidebar">
         <article class="dash_sidebar_user">
-            <img class="dash_sidebar_user_thumb" src="assets/backend/images/avatar.jpg" alt="" title=""/>
+            <img class="dash_sidebar_user_thumb" src="/assets/backend/images/avatar.jpg" alt="" title=""/>
 
             <h1 class="dash_sidebar_user_name">
                 <a href="">Gustavo Web</a>
@@ -40,12 +40,12 @@
             <li class="dash_sidebar_nav_item active {{ isActive('home') }}">
                 <a class="icon-tachometer" href="<?php echo route('home'); ?>>">Dashboard</a>
             </li>
-            <li class="dash_sidebar_nav_item"><a class="icon-users" href="dashboard.php?app=users/index">Clientes</a>
+            <li class="dash_sidebar_nav_item {{ isActive('users') }}"><a class="icon-users" href="/users">Clientes</a>
                 <ul class="dash_sidebar_nav_submenu">
-                    <li class=""><a href="dashboard.php?app=users/index">Ver Todos</a></li>
-                    <li class=""><a href="dashboard.php?app=companies/index">Empresas</a></li>
-                    <li class=""><a href="dashboard.php?app=users/team">Time</a></li>
-                    <li class=""><a href="dashboard.php?app=users/create">Criar Novo</a></li>
+                    <li class="{{ isActive('users.index') }}"><a href="/users">Ver Todos</a></li>
+                    <li class=""><a href="">Empresas</a></li>
+                    <li class="{{ isActive('users.team') }}"><a href="users/team">Time</a></li>
+                    <li class="{{ isActive('users.create') }}"><a href="/users/create">Criar Novo</a></li>
                 </ul>
             </li>
             <li class="dash_sidebar_nav_item"><a class="icon-home" href="dashboard.php?app=properties/index">Imóveis</a>
