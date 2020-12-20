@@ -9,11 +9,11 @@
         <div class="dash_content_app_header_actions">
             <nav class="dash_content_app_breadcrumb">
                 <ul>
-                    <li><a href="">Dashboard</a></li>
+                    <li><a href="<?php echo route('home'); ?>">Dashboard</a></li>
                     <li class="separator icon-angle-right icon-notext"></li>
-                    <li><a href="">Clientes</a></li>
+                    <li><a href="<?php echo route('users.index'); ?>">Clientes</a></li>
                     <li class="separator icon-angle-right icon-notext"></li>
-                    <li><a href="" class="text-orange">Novo Usuário</a></li>
+                    <li><a href="<?php echo route('users.create'); ?>" class="text-orange">Novo Usuário</a></li>
                 </ul>
             </nav>
         </div>
@@ -40,13 +40,13 @@
                         <div class="label_gc">
                             <span class="legend">Perfil:</span>
                             <label class="label">
-                                <input type="checkbox" name="lessor"
-                                {{ (old('lessor') == 'on' || old('lessor') == true ? 'checked' : '') }}>
+                                <input type="checkbox" name="admin"
+                                {{ (old('admin') == 'on' || old('admin') == true ? 'checked' : '') }}>
                                 <span>Usuário</span>
                             </label>
 
                             <label class="label">
-                                <input type="checkbox" name="lessee{{ (old('lessee') == 'on' || old('lessee') == true ? 'checked' : '') }}">
+                                <input type="checkbox" name="client{{ (old('client') == 'on' || old('client') == true ? 'checked' : '') }}">
                                 <span>Cliente</span>
                             </label>
                         </div>

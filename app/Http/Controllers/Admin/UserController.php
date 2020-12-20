@@ -61,9 +61,14 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        return view('backend.users.edit');
+        $user = User::where('id', $id)->first();
+
+        //var_dump($user->date_of_birth, $user->getAttributes());
+        return view('backend.users.edit', [
+            'user' => $user
+        ]);
     }
 
     /**
@@ -73,9 +78,15 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UserRequest $request, $id)
     {
-        //
+        $user = User::where('id', $id)->first();
+        $user->setAdminAttribute($request->admin);
+        $user->setClientAttribute($request->client);
+        $user->fill($request->all());
+        $user->save();
+        var_dump($user);
+
     }
 
     /**

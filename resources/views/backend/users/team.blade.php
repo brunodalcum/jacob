@@ -15,7 +15,7 @@
                     </ul>
                 </nav>
 
-                <a href="" class="btn btn-orange icon-user-plus ml-1">Criar Usuário</a>
+                <a href="<?php echo route('users.create'); ?>" class="btn btn-orange icon-user-plus ml-1">Criar Usuário</a>
             </div>
         </header>
 

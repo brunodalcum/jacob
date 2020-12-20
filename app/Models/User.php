@@ -17,8 +17,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'lessor',
-        'lessee',
+        'admin',
+        'client',
         'name',
         'email',
         'cpf',
@@ -45,23 +45,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function setLessorAttribute($value)
+    public function setAdminAttribute($value)
     {
-        $this->attributes['lessor'] = ($value === true || $value === 'on' ? 1 : 0);
+        $this->attributes['admin'] = ($value === true || $value === 'on' ? 1 : 0);
     }
 
-    public function setLesseeAttribute($value)
+    public function setClientAttribute($value)
     {
-        $this->attributes['lessee'] = ($value === true || $value === 'on' ? 1 : 0);
+        $this->attributes['client'] = ($value === true || $value === 'on' ? 1 : 0);
     }
     public function setCpfAttribute($value)
     {
         $this->attributes['cpf'] = (!empty($value) ? $this->clearField($value) : null);
     }
-    public function setSpouseDateOfBirthAttribute($value)
-    {
-        $this->attributes['spouse_date_of_birth'] = (!empty($value) ? $this->convertStringToDate($value) : null);
-    }
+
     public function setPasswordAttribute($value)
     {
         if (empty($value)) {
@@ -98,5 +95,29 @@ class User extends Authenticatable
 
         list($day, $month, $year) = explode('/', $param);
         return (new \DateTime($year . '-' . $month . '-' . $day))->format('Y-m-d');
+    }
+    public function getCpfAttribute($value)
+    {
+        if (empty($value)) {
+            return null;
+        }
+
+        return
+            substr($value, 0, 3) . '.' .
+            substr($value, 3, 3) . '.' .
+            substr($value, 6, 3) . '-' .
+            substr($value, 9, 2);
+    }
+    public function setDateOfBirthAttribute($value)
+    {
+        $this->attributes['date_of_birth'] = (!empty($value) ? $this->convertStringToDate($value) : null);
+    }
+    public function getDateOfBirthAttribute($value)
+    {
+        if (empty($value)) {
+            return null;
+        }
+
+        return date('d/m/Y', strtotime($value));
     }
 }
