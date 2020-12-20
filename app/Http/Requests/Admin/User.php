@@ -16,7 +16,16 @@ class User extends FormRequest
     {
         return Auth::check();
     }
+    public function all($keys = null)
+    {
+        return $this->validateFields(parent::all());
+    }
 
+    public function validateFields(array $inputs)
+    {
+        $inputs['cpf'] = str_replace(['.', '-'], '', $this->request->all()['cpf']);
+        return $inputs;
+    }
     /**
      * Get the validation rules that apply to the request.
      *

@@ -26,6 +26,10 @@
                         <x-alert color="orange" message="{{ $error }}"/>
                     @endforeach
                 @endif
+
+                    @if(session()->exists('message'))
+                        <x-alert color="{{ session()->get('color') }}" message="{{ session()->get('message') }}"/>
+                    @endif
                 <ul class="nav_tabs">
                     <li class="nav_tabs_item">
                         <a href="#data" class="nav_tabs_item_link active">Dados Cadastrais</a>
@@ -36,6 +40,7 @@
                 <form class="app_form" action="<?php echo route('users.update', ['user' => $user->id]); ?>" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
+                    <input type="hidden" name="id" value="{{ $user->id }}">
                     <div class="nav_tabs_content">
                         <div id="data">
                             <div class="label_gc">
@@ -64,13 +69,13 @@
                             </label>
                         </div>
                         <label class="label">
-                            <label class="label">
-                                <span class="legend">*E-MAIL:</span>
-                                <input type="email" class="mask-doc" name="email" placeholder="EMAIL do cliente"
-                                       value="{{ old('email') ?? $user->email }}"/>
-                            </label>
+                            <span class="legend">*E-mail:</span>
+                            <input type="email" name="email" placeholder="Melhor e-mail"
+                                   value="{{ old('email') ?? $user->email }}"/>
+                        </label>
 
-                            <label class="label">
+
+                        <label class="label">
                                 <span class="legend">*Data de Nascimento:</span>
                                 <input type="tel" name="date_of_birth" class="mask-date"
                                        placeholder="Data de Nascimento" value="{{ old('date_of_birth') ?? $user->date_of_birth}}"/>

@@ -76,7 +76,7 @@ class UserController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(UserRequest $request, $id)
     {
@@ -85,7 +85,11 @@ class UserController extends Controller
         $user->setClientAttribute($request->client);
         $user->fill($request->all());
         $user->save();
-        var_dump($user);
+        return redirect()->route('users.edit',[
+            'user' => $user->id
+        ])->with(['color' => 'green', 'message' => 'Cliente atualizado com sucesso' ]);
+
+
 
     }
 

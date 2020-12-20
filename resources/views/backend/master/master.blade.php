@@ -89,15 +89,15 @@
 </div>
 
 
-<script src="assets/backend/js/jquery.min.js"></script>
-<script src="assets/backend/js/tinymce/tinymce.min.js"></script>
-<script src="assets/backend/js/datatables/js/jquery.dataTables.min.js"></script>
-<script src="assets/backend/js/datatables/js/dataTables.responsive.min.js"></script>
-<script src="assets/backend/js/select2/js/select2.min.js"></script>
-<script src="assets/backend/js/select2/js/i18n/pt-BR.js"></script>
-<script src="assets/backend/js/jquery.form.js"></script>
-<script src="assets/backend/js/jquery.mask.js"></script>
-<script src="assets/backend/js/scripts.js"></script>
+<script src="/assets/backend/js/jquery.min.js"></script>
+<script src="/assets/backend/js/tinymce/tinymce.min.js"></script>
+<script src="/assets/backend/js/datatables/js/jquery.dataTables.min.js"></script>
+<script src="/assets/backend/js/datatables/js/dataTables.responsive.min.js"></script>
+<script src="/assets/backend/js/select2/js/select2.min.js"></script>
+<script src="/assets/backend/js/select2/js/i18n/pt-BR.js"></script>
+<script src="/assets/backend/js/jquery.form.js"></script>
+<script src="/assets/backend/js/jquery.mask.js"></script>
+<script src="/assets/backend/js/scripts.js"></script>
 
 </body>
 </html>
